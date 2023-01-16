@@ -32,6 +32,7 @@ inline time-trial (func iterations args...)
         average-time += (time-it func args...)
     
     average-time /= iterations
+    average-time
     
 locals;
 
