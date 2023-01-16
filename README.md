@@ -1,5 +1,5 @@
-some basic utilities for benchmarking in scopes.
+# sc-bench-utils
+Some basic utilities for benchmarking in scopes.
 
-# demo
-
-![](demo.gif)
+# Demo
+![](media/demo.gif)
