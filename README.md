@@ -1,2 +1,5 @@
-# sc-debug-time
-a simple wrapper around C's timing functions for scopes.
+some basic utilities for benchmarking in scopes.
+
+# demo
+
+![](demo.gif)
