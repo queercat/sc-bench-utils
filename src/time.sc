@@ -18,14 +18,20 @@ fn get-time ()
     let tse =
         s + ns
 
-inline time-it (func)
+inline time-it (func args...)
     local start-time = (get-time)
-    call func
+    call func args...
     local end-time = (get-time)
 
     let duration = (end-time - start-time)
-    print 
-        .. (format "{} took {}s" func duration)
+    duration
 
+inline time-trial (func iterations args...) 
+    local average-time = 0:f64
+    for _ in (range 0 iterations)
+        average-time += (time-it func args...)
+    
+    average-time /= iterations
+    
 locals;
 

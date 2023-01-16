@@ -12,8 +12,8 @@ jobs:
       - name: Clone Fundament Scopes
         run: git clone https://github.com/fundament-software/scopes
       
-      - name: Debug Print
-        run: ls -la
-          
       - name: Build Scopes
-        run: cd $GITHUB_WORKSPACE/scopes; nix build
+        run: cd scopes; nix build
+      
+      - name: Run Tests
+        run: cd ../; make tests 
