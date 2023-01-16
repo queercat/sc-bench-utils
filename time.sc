@@ -1,7 +1,7 @@
-let time = (include "time.h")
+using import format
+using import String
 
-let tm =
-    time.struct.tm
+let time = (include "time.h")
 
 fn get-time ()
     local timespec-struct =
@@ -18,6 +18,14 @@ fn get-time ()
     let tse =
         s + ns
 
-while true
-    print "time since epoch"
-    print (get-time)
+inline time-it (func)
+    local start-time = (get-time)
+    call func
+    local end-time = (get-time)
+
+    let duration = (end-time - start-time)
+    print 
+        .. (format "{} took {}s" func duration)
+
+locals;
+
