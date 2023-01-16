@@ -12,8 +12,19 @@ jobs:
       - name: Clone Fundament Scopes
         run: git clone https://github.com/fundament-software/scopes
       
-      - name: Build Scopes
-        run: cd scopes; nix build
+      - name: Build & Install Scopes
+        run: | 
+          cd scopes
+          nix build
+      
+      - name: Add Scopes to Path
+        run:
+          echo "$GITHUB_WORKSPACE/scopes/result/bin" >> $GITHUB_PATH
+
+      - name: Clone Repository
+        run: git clone https://github.com/queercat/sc-bench-utils
       
       - name: Run Tests
-        run: cd ../; make test
+        run: |
+          cd sc-bench-utils
+          make test
