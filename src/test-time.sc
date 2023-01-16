@@ -9,3 +9,4 @@ fn create-array ()
 
 for _ in (range 0 100)
     time-it create-array
+

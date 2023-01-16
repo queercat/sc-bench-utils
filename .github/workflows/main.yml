@@ -1,0 +1,19 @@
+name: 'Run Tests'
+
+on: [push, pull_request]
+
+jobs:
+  run-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Nix 
+        uses: cachix/install-nix-action@v18 
+        
+      - name: Clone Fundament Scopes
+        run: git clone https://github.com/fundament-software/scopes
+      
+      - name: Debug Print
+        run: ls -la
+          
+      - name: Build Scopes
+        run: cd $GITHUB_WORKSPACE/scopes; nix build
