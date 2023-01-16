@@ -13,3 +13,15 @@ let average-time = (time-trial create-array iterations)
 
 print 
     .. (format "on average {} took {}s over {} iterations" create-array average-time iterations)
+
+fn create-array-with-args (value)
+    for x in (range 0 100)
+        local values = ((Array i64))
+        for y in (range 0 (pow 10 1))
+            'append values value
+
+let iterations = (pow 10 5) 
+let average-time = (time-trial create-array-with-args iterations 0) 
+
+print 
+    .. (format "on average {} took {}s over {} iterations" create-array-with-args average-time iterations)
