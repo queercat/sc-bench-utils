@@ -16,4 +16,4 @@ jobs:
         run: cd scopes; nix build
       
       - name: Run Tests
-        run: cd ../; make tests 
+        run: cd ../; make test
