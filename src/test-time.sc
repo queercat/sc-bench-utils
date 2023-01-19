@@ -12,7 +12,7 @@ let iterations = 100
 let average-time = (time-trial create-array iterations)
 
 print 
-    .. (format "on average {} took {}s over {} iterations" create-array average-time iterations)
+    .. (format "on average {} took {}s over {} iterations" (average-time @ 1) (average-time @ 0) iterations)
 
 fn create-array-with-args (value)
     for x in (range 0 100)
@@ -21,7 +21,7 @@ fn create-array-with-args (value)
             'append values value
 
 let iterations = (pow 10 5) 
-let average-time = (time-trial create-array-with-args iterations 0) 
+let average-time = (time-trial create-array-with-args iterations 0)
 
 print 
-    .. (format "on average {} took {}s over {} iterations" create-array-with-args average-time iterations)
+    .. (format "on average {} took {}s over {} iterations" (average-time @ 1) (average-time @ 0) iterations)

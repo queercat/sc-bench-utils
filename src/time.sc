@@ -7,7 +7,7 @@ fn get-time ()
     local timespec-struct =
         (time.struct.timespec)
 
-    (time.extern.clock_gettime 0 &timespec-struct)
+    (time.extern.clock_gettime 1 &timespec-struct)
 
     let ns = 
         (timespec-struct.tv_nsec / (pow 10 9))
@@ -24,15 +24,15 @@ inline time-it (func args...)
     local end-time = (get-time)
 
     let duration = (end-time - start-time)
-    duration
+    (tupleof duration func)
 
 inline time-trial (func iterations args...) 
     local average-time = 0:f64
     for _ in (range 0 iterations)
-        average-time += (time-it func args...)
+        average-time += ((time-it func args...) @ 0)
     
     average-time /= iterations
-    average-time
+    (tupleof average-time func)
     
 locals;
 
